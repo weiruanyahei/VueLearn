@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--计算属性：
+1、解决模板中一些数据或表达式复杂导致臃肿甚至难以阅读和维护的情况；
+2、所有的计算属性都以函数的形式写在Vue实例内的computed选项内，最终返回计算后的结果。
+3、每个计算属性都包含一个getter和一个setter，读取计算属性的值，默认调用getter获取；
+当手动修改计算属性的值时，就会触发setter函数，执行自定义的操作。-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>姓名：{{fullName}}</h1>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{firstName:'Jack',
+        lastName:'Green'},
+        computed:{
+            fullName:{
+                //getter
+                get:function () {
+                    return this.firstName+' '+this.lastName;
+                },
+                //setter 写入时触发
+                set:function (newFullName) {
+                    var nameArr = newFullName.split(' ');
+                    this.firstName = nameArr[0];
+                    this.lastName = nameArr[1];
+                }
+            }
+        }
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

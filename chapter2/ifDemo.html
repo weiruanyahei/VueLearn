@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--语法糖：不影响功能的情况下，添加某种方法实现同样的效果，方便程序开发。
+如：v-bind:直接写成冒号“:”;v-on:对应为@ -->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1 v-if="show">{{100/number}}</h1>
+    <button @click="show=false">隐藏上一个兄弟DOM</button>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{number:10,
+        show:true}
+        /*methods:{
+            hidePreEle:function () {
+                debugger;
+                this.show = false;
+            }
+        }*/
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

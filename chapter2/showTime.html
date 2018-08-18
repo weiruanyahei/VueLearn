@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--管道符"|",常用于filter可以串联，还可以接收参数；如：
+    {{message | filter1 | filter2 }}
+    {{message | filter1('arg2','arg3') }}这里之所以从第二个参数排序，因message作为首个参数传入-->
+    <h1>{{date | formatDate}}</h1>
+</div>
+<script>
+    var padDate = function (val) {
+        return val<10?'0'+val:val;
+    };
+    var app = new Vue({
+        el:'#app',
+        data:{date:new Date()},
+        /*Vue的生命周期钩子：
+        created:实例创建完成后调用，此阶段完成了数据的观测等，但尚未挂载，$el还不可用。*/
+        /*el挂载到实例上后调用，通常首个逻辑从这里开始*/
+        mounted:function () {
+            var _this = this;//声明一个变量指向Vue实例，保证内部函数引用的作用域一致
+            this.timer = setInterval(function () {
+                _this.date = new Date();
+            },1000);
+        },
+        /*实例销毁之前调用。主要解绑一些使用addEventListener监听的事件等*/
+        beforeDestroy:function () {
+            //在Vue实例销毁前，清除定时器
+            if(this.timer){
+                clearInterval(this.timer);
+            }
+        },
+        filters:{formatDate:function (dateStr) {
+                var date = new Date(dateStr);
+                var year = date.getFullYear();
+                var month = padDate(date.getMonth()+1);
+                var day = padDate(date.getDate());
+                debugger;
+                var hour = padDate(date.getHours());
+                var minute = padDate(date.getMinutes());
+                var seconds = padDate(date.getSeconds());
+                return year+'-'+month+'-'+day+' '+hour+':'+minute+":"+seconds;
+            }}
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

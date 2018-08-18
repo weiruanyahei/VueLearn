@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="book in books">{{book.name}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{books:[{name:'《语文》'},{name:'《数学》'},{name:'《英语》'}]}
+    })
+</script>
+</body>
+</html>

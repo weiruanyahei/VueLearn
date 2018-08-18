@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{100/number}}</h1>
+    <h1>{{isTrue?'true':'false'}}</h1>
+    <h1>{{text.split(',').reverse().join(',')}}</h1>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{number:10,
+        isTrue:true,
+        text:'123,234'}
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

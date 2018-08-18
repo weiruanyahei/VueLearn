@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="name" placeholder="你的名字"/>
+    <h1>Hello,{{name}}</h1>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{name:'kebo'}
+    })
+    console.log(app.name);
+</script>
+</body>
+</html>

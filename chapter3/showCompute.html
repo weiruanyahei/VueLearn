@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--计算属性：解决模板中一些数据或表达式复杂导致臃肿甚至难以阅读和维护的情况；
+所有的计算属性都以函数的形式写在Vue实例内的computed选项内，最终返回计算后的结果。-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{100/number}}</h1>
+    <h1>{{isTrue?'true':'false'}}</h1>
+    <h1>{{reverseText}}</h1>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{number:10,
+        isTrue:true,
+        text:'123,234'},
+        computed:{
+            reverseText:function () {
+                return this.text.split(',').reverse().join(',');
+            }
+        }
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

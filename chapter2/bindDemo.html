@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a :href="url">this is a link</a>
+    <img :src="imgSrc"/>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{url:'#',
+        imgSrc:'../img/logo.png'}
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>

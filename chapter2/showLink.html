@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <script src="../jslib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span v-html="link"></span><br/>
+    <span v-pre>{{link}}测试</span>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{link:'<a href="https://www.baidu.com/">this is a link</a>'}
+    })
+    //console.log(app.name);
+</script>
+</body>
+</html>
